@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://webdev.slides.com/eschoppik/es2015 -->
+<html class="sl-root decks show mz-history mz-svg mz-localstorage mz-csspositionsticky mz-supports mz-cssanimations mz-backgroundsize mz-no-cssgridlegacy mz-cssgrid mz-flexbox mz-csstransforms mz-csstransforms3d mz-csstransitions mz-fullscreen mz-webpanimation js-focus-visible loaded ua-windows ua-chrome has-visible-scrollbars fonts-are-ready reveal-is-ready" data-account="default" data-js-focus-visible=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+    <title>ES2015 </title>
+    <meta name="description" content="ES2015 Introduction">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta property="og:title" content="ES2015 Part 1">
+    <meta property="og:description" content="ES2015 Introduction">
+    <meta property="og:site_name" content="Slides">
+    <meta property="og:image" content="https://media.slid.es/thumbnails/af723e52dca84c25b29bfadd98145fbf/thumb.jpg?18773398">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://webdev.slides.com/eschoppik/es2015">
+    <meta property="fb:app_id" content="146002942236376">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="manifest" href="http://webdev.slides.com/manifest.json">
+
+    <link href="./ES2015 Part 1_files/css2" rel="stylesheet" type="text/css" data-application-font="inter">
+
+    <link rel="stylesheet" media="all" href="./ES2015 Part 1_files/slides-5463dbbad1a68c6e9a85872698fd43e74078271bfd42f08aadf3e7324137e99c.css">
+    <link rel="stylesheet" media="all" href="./ES2015 Part 1_files/application-7c4aaa6a5a25f1cc0c409a604b1d9e23feeca0c2279eb354fa2d1204b4e7dbd1.css">
+    	<link rel="stylesheet" media="all" href="./ES2015 Part 1_files/deck-v2-48db2ff32fa8faa2f0d1fe3b017788bb2f1515d0f0fb07e6784e4d2abf58ffe9.css">
+
+<style id="global-css-output" type="text/css"></style>
+
+<style id="theme-css-output" type="text/css">.reveal {
+  background: #2c3e50;
+}
+.reveal .slides {
+  color: #ecf0f1;
+}
+.reveal em,
+.reveal strong,
+.reveal a {
+  color: #3498db;
+}
+.reveal h2 {
+  text-transform: none !important;
+}
+</style>
+
+<style id="user-css-output" type="text/css">.reveal .slides h1,
+.reveal .slides h2,
+.reveal .slides h3 {
+  font-family: "Open Sans";
+  text-transform: none;
+}
+.reveal {
+  background: #2e3d49;
+}
+</style>
+
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="BeV8H1GbgZ89xRkAXENLWXFJfluJPjxLXA7wqxRxxLYDvacV32bHtd1AutDjDzyroJ4SSwqI0gskR9+fOhsSiw==">
+    <script type="text/javascript" async="" src="./ES2015 Part 1_files/f7sH7NavrjjvuGxByaw.js.téléchargement"></script><script async="" src="./ES2015 Part 1_files/analytics.js.téléchargement"></script><script type="text/javascript">
+  if( navigator.doNotTrack !== '1' && !/dnt=1/.test( window.location.search ) ) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-39670045-1', 'auto');
+    ga('send', 'pageview');
+
+  }
+</script>
+    	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@Slides">
+	<meta name="twitter:title" content="ES2015">
+	<meta name="twitter:description" content="ES2015 Introduction">
+	<meta name="twitter:image" content="thumb.jpg">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <style type="text/css"></style><link rel="stylesheet" href="./ES2015 Part 1_files/quicksand.css"><link rel="stylesheet" href="./ES2015 Part 1_files/opensans.css"><style type="text/css" media="screen">.uv-icon{box-sizing:border-box;display:inline-block;cursor:pointer;position:relative;transition:all 300ms;width:39px;height:39px;position:fixed;z-index:100002;opacity:0.8;transition:opacity 100ms}.uv-icon.uv-bottom-right{bottom:10px;right:12px}.uv-icon.uv-top-right{top:10px;right:12px}.uv-icon.uv-bottom-left{bottom:10px;left:12px}.uv-icon.uv-top-left{top:10px;left:12px}.uv-icon.uv-is-selected{opacity:1}.uv-icon svg{width:39px;height:39px}.uv-icon .uv-tooltip-container{position:relative}.uv-icon .uv-tooltip-container .uv-icon-tooltip{display:none;position:absolute;height:20px;padding:4px 8px;background-color:#464653;color:white;font-size:12px;border-radius:4px;line-height:18px;font-family:"Open Sans", sans-serif;white-space:nowrap}.uv-icon .uv-tooltip-container .uv-icon-tooltip.left,.uv-icon .uv-tooltip-container .uv-icon-tooltip.right{top:0;bottom:0;margin:auto 10px}.uv-icon .uv-tooltip-container .uv-icon-tooltip.top,.uv-icon .uv-tooltip-container .uv-icon-tooltip.bottom{transform:translate(-30%);margin:10px auto}.uv-icon .uv-tooltip-container .uv-icon-tooltip.top{bottom:100%}.uv-icon .uv-tooltip-container .uv-icon-tooltip.bottom{top:100%}.uv-icon .uv-tooltip-container .uv-icon-tooltip.left{right:100%}.uv-icon .uv-tooltip-container .uv-icon-tooltip.right{left:100%}.uv-icon .uv-tooltip-container:hover .uv-icon-tooltip{display:block}.uv-icon-trigger{display:block;width:39px;height:39px;border:none;padding:0;cursor:pointer;background:none}.uv-popover{font-family:sans-serif;font-weight:100;font-size:13px;color:black;position:fixed;z-index:100001}.uv-popover-content{border-radius:5px;background:white;border:1px solid transparent;position:relative;width:325px;height:325px;transition:background 200ms}.uv-bottom .uv-popover-content{box-shadow:rgba(0,0,0,0.3) 0 -10px 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-top .uv-popover-content{box-shadow:rgba(0,0,0,0.3) 0 10px 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-left .uv-popover-content{box-shadow:rgba(0,0,0,0.3) 10px 0 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-right .uv-popover-content{box-shadow:rgba(0,0,0,0.3) -10px 0 60px,rgba(0,0,0,0.1) 0 0 20px}.uv-ie8 .uv-popover-content{position:relative}.uv-ie8 .uv-popover-content .uv-popover-content-shadow{display:block;background:black;content:'';position:absolute;left:-15px;top:-15px;width:100%;height:100%;filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius=15,MakeShadow=true,ShadowOpacity=0.30);z-index:-1}.uv-popover-tail{border:9px solid transparent;width:0;z-index:10;position:absolute;transition:border-top-color 200ms}.uv-top .uv-popover-tail{bottom:-20px;border-top:11px solid white}.uv-bottom .uv-popover-tail{top:-20px;border-bottom:11px solid white}.uv-left .uv-popover-tail{right:-20px;border-left:11px solid white}.uv-right .uv-popover-tail{left:-20px;border-right:11px solid white}.uv-popover-loading{background:white;border-radius:5px;position:absolute;width:100%;height:100%;left:0;top:0}.uv-popover-loading-text{position:absolute;top:50%;margin-top:-0.5em;width:100%;text-align:center}.uv-popover-iframe-container{height:100%}.uv-popover-iframe{border-radius:5px;overflow:hidden}.uv-is-hidden{display:none}.uv-is-invisible{display:block !important;visibility:hidden !important}.uv-is-transitioning{display:block !important}.uv-no-transition{transition:none !important}.uv-fade{opacity:1;transition:opacity 200ms ease-out}.uv-fade.uv-is-hidden{opacity:0}.uv-scale-top,.uv-scale-top-left,.uv-scale-top-right,.uv-scale-bottom,.uv-scale-bottom-left,.uv-scale-bottom-right,.uv-scale-right,.uv-scale-right-top,.uv-scale-right-bottom,.uv-scale-left,.uv-scale-left-top,.uv-scale-left-bottom,.uv-slide-top,.uv-slide-bottom,.uv-slide-left,.uv-slide-right{opacity:1;transition:all 80ms ease-out}.uv-scale-top.uv-is-hidden{opacity:0;transform:scale(0.8) translateY(-15%)}.uv-scale-top-left.uv-is-hidden{opacity:0;transform:scale(0.8) translateY(-15%) translateX(-10%)}.uv-scale-top-right.uv-is-hidden{opacity:0;transform:scale(0.8) translateY(-15%) translateX(10%)}.uv-scale-bottom.uv-is-hidden{opacity:0;transform:scale(0.8) translateY(15%)}.uv-scale-bottom-left.uv-is-hidden{opacity:0;transform:scale(0.8) translateY(15%) translateX(-10%)}.uv-scale-bottom-right.uv-is-hidden{opacity:0;transform:scale(0.8) translateY(15%) translateX(10%)}.uv-scale-right.uv-is-hidden{opacity:0;transform:scale(0.8) translateX(15%)}.uv-scale-right-top.uv-is-hidden{opacity:0;transform:scale(0.8) translateX(15%) translateY(-10%)}.uv-scale-right-bottom.uv-is-hidden{opacity:0;transform:scale(0.8) translateX(15%) translateY(10%)}.uv-scale-left.uv-is-hidden{opacity:0;transform:scale(0.8) translateX(-15%)}.uv-scale-left-top.uv-is-hidden{opacity:0;transform:scale(0.8) translateX(-15%) translateY(-10%)}.uv-scale-left-bottom.uv-is-hidden{opacity:0;transform:scale(0.8) translateX(-15%) translateY(10%)}.uv-slide-top.uv-is-hidden{transform:translateY(-100%)}.uv-slide-bottom.uv-is-hidden{transform:translateY(100%)}.uv-slide-left.uv-is-hidden{transform:translateX(-100%)}.uv-slide-right.uv-is-hidden{transform:translateX(100%)}
+</style><script type="text/javascript" src="./ES2015 Part 1_files/highlight-b633f6a6f8f33092c77cdeec43341175b82c93f333c1bf3d52ca8ccb5f62c727.js.téléchargement"></script><style>a, button, .sl-select, .sl-checkbox label, .radio label, .focus-outline { outline: none !important; }</style><style type="text/css">
+@font-face {
+  font-weight: 400;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Book-cd7d2bcec649b1243839a15d5eb8f0a3.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 500;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Medium-d74eac43c78bd5852478998ce63dceb3.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 700;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Bold-83b8ceaf77f49c7cffa44107561909e4.woff2') format('woff2');
+}
+
+@font-face {
+  font-weight: 900;
+  font-style:  normal;
+  font-family: 'Circular-Loom';
+
+  src: url('https://cdn.loom.com/assets/fonts/circular/CircularXXWeb-Black-bf067ecb8aa777ceb6df7d72226febca.woff2') format('woff2');
+}</style><script type="text/javascript" async="" src="./ES2015 Part 1_files/embed.js.téléchargement"></script><script type="text/javascript" src="./ES2015 Part 1_files/zoom-a5d62a27f9dd7ce53da982c71e540b906097da17f6aadaf4d6532ff16c39d0c4.js.téléchargement"></script><style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style><link rel="prefetch" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.c82b267b396dfbc10ae5113342115da8.css"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.f485ba8b89bf2153fdb9f493ec342aed.js"><link rel="prefetch" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.54cf549c270b597d5587d24486b38d71.js"><link rel="prefetch" as="script" href="https://disqus.com/next/config.js"></head>
+  <body data-new-gr-c-s-check-loaded="14.997.0" data-gr-ext-installed="" style="transition: -webkit-transform 0.8s ease 0s;">
+    
+    <div id="container" class="container">
+      <header class="global-header show-on-scroll extra-wide">
+  <div class="wrapper">
+    <div class="slides-logo logo-image-or-text">
+      <a href="http://webdev.slides.com/">
+        webdev
+      </a>
+    </div>
+    <div class="nav-wrapper">
+      <ul class="nav">
+
+            <li class="nav-item">
+              <a class="nav-item-anchor" href="http://webdev.slides.com/"><span class="nav-item-label">Home</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-item-anchor new-deck-button" href="http://webdev.slides.com/hamoudagmc/new"><span class="nav-item-label">New deck</span></a>
+            </li>
+
+          <li class="nav-item overflow-disabled profile-button">
+            <a class="nav-item-anchor" href="http://webdev.slides.com/hamoudagmc">
+              <span class="nav-item-label">hamoudagmc</span>
+              <span class="nav-item-burger">
+                <span class="nav-item-burger-1"></span>
+                <span class="nav-item-burger-2"></span>
+                <span class="nav-item-burger-3"></span>
+              </span>
+            </a>
+          </li>
+
+      </ul>
+    </div>
+  </div>
+</header>
+
+      
+      <div id="main" class="main " role="main">
+        
+
+
+
+
+
+
+
+<div class="marquee">
+
+	<div class="reveal-frame">
+		<div class="reveal-viewport theme-font-quicksand theme-color-white-blue" style="--slide-width:960px; --slide-height:700px;">
+			<div class="reveal fade embedded has-horizontal-slides ready focused" role="application" data-transition-speed="default" data-background-transition="slide">
+				<div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(0.662286);">
+					<section data-id="7f08ae9e0c588fac092fb35818d97902" class="present" style="display: block;"><div class="sl-block" data-block-type="text" style="width: 937px; left: 12px; top: 181px; height: auto;" data-block-id="9d0f2fda6a64aa5de262eb524e17e772"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; line-height: 0.949;" data-has-line-height="" dir="ui">
+<h1><span style="color:#1abc9c"><span style="font-size:3.0em">ES2015</span></span></h1>
+
+<p><span style="font-size:3.0em">ES6</span></p>
+</div></div>
+</section><section data-id="bf82afa4421246f120854c83b491ddb5" class="future" style="display: block;" data-fragment="-1" hidden="" aria-hidden="true"><div class="sl-block" data-block-type="text" style="width: 908px; left: 20px; top: 92px; height: auto;" data-block-id="92faf5b4d234735d491275de5e718325"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1><span style="font-size:1.0em"><span style="color:#1abc9c">Objectives</span></span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 883px; left: 45px; top: 212px; height: auto;" data-block-id="29ec4adfc1f8cc1faa28a8776f1a3a30"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<ul>
+	<li class="fragment" data-fragment-index="0">
+	<p><span style="font-size:0.9em">Understand what ES2015 is and how the term came to be</span></p>
+	</li>
+	<li class="fragment" data-fragment-index="1">
+	<p><span style="font-size:0.9em">Refactor code to use let and const and explain the implications of using both</span></p>
+	</li>
+	<li class="fragment" data-fragment-index="2"><span style="font-size:0.9em">Use template strings to avoid string concatenation in your JavaScript code</span></li>
+	<li class="fragment" data-fragment-index="3"><span style="font-size:0.9em">Use arrow functions to write shorter functions and compare arrow functions and the function <span style="color:rgb(236, 240, 241); text-align:left">keyword</span></span></li>
+	<li class="fragment" data-fragment-index="4"><span style="font-size:0.9em">Use ES2015 object enhancements to refactor code</span></li>
+	<li class="fragment" data-fragment-index="5"><span style="font-size:0.9em">Explain what ES2015 default parameters are and how to use them</span></li>
+	<li class="fragment" data-fragment-index="6"><span style="font-size:0.9em">Compare and contrast the rest and spread operators</span></li>
+	<li class="fragment" data-fragment-index="7"><span style="font-size:0.9em">Unpack values from arrays and objects using destructuring</span></li>
+</ul>
+</div></div></section><section data-id="678ac21d83a9d2ebece4e4457e822866" hidden="" aria-hidden="true" class="future" style="display: block;"><div class="sl-block" data-block-type="text" style="width: 808px; left: 76px; top: 140px; height: auto;" data-block-id="5e846c3ff9ade578637dbb5d0fb5dc6b"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(26, 188, 156); font-size: 162%;">
+<h1>But first....</h1>
+
+<h1>a little history</h1>
+</div></div></section><section data-id="df0f4761f500f1e6342237bdba441d62" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 808px; left: 76px; top: 170px; height: auto;" data-block-id="f79c241848c5c4695b716604c413429d"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1><span style="color:#1abc9c">JavaScript Timeline</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 41px; top: 420px;" data-block-id="3f4c89a68604a2263a86d3f321edc04a"><div class="sl-block-content fragment" data-line-x1="-37" data-line-y1="199" data-line-x2="848" data-line-y2="201" data-line-color="#ecf0f1" data-line-start-type="none" data-line-end-type="none" style="z-index: 11;" data-line-width="6px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="885" height="2" viewBox="-37 199 885 2"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="-37" y1="199" x2="848" y2="201"></line><line stroke="#ecf0f1" stroke-width="6" x1="-37" y1="199" x2="848" y2="201"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 39px; top: 350px;" data-block-id="0b4a6490e1b802aff5680d875cc07997"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="177" data-line-x2="0" data-line-y2="37" data-line-color="#ecf0f1" data-line-start-type="none" data-line-end-type="none" style="z-index: 12;" data-line-width="6px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="140" viewBox="0 37 1 140"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="177" x2="0" y2="37"></line><line stroke="#ecf0f1" stroke-width="6" x1="0" y1="177" x2="0" y2="37"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 925px; top: 351px;" data-block-id="6f96fee955016b2939ecc6cb97cdf7dc"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="177" data-line-x2="0" data-line-y2="37" data-line-color="#ecf0f1" data-line-start-type="none" data-line-end-type="none" style="z-index: 13;" data-line-width="6px" data-fragment-index="0"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="140" viewBox="0 37 1 140"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="177" x2="0" y2="37"></line><line stroke="#ecf0f1" stroke-width="6" x1="0" y1="177" x2="0" y2="37"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 176px; top: 383px;" data-block-id="22ab666e1409ecfc619942420c00ca1f"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="183" data-line-x2="0" data-line-y2="105" data-line-color="#ecf0f1" data-line-start-type="none" data-line-end-type="none" style="z-index: 14;" data-line-width="6px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="78" viewBox="0 105 1 78"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="183" x2="0" y2="105"></line><line stroke="#ecf0f1" stroke-width="6" x1="0" y1="183" x2="0" y2="105"></line></svg></div></div>
+
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 881px; top: 383px;" data-block-id="c54269a05f95bcc3b7952aa670d3512c"><div class="sl-block-content fragment" data-line-x1="1" data-line-y1="177" data-line-x2="1" data-line-y2="101" data-line-color="#ecf0f1" data-line-start-type="none" data-line-end-type="none" style="z-index: 15;" data-line-width="6px" data-fragment-index="8"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="76" viewBox="1 101 1 76"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="1" y1="177" x2="1" y2="101"></line><line stroke="#ecf0f1" stroke-width="6" x1="1" y1="177" x2="1" y2="101"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 799px; top: 383px;" data-block-id="b384da837eacdb18fbc8ecca85f1281d"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="179" data-line-x2="0" data-line-y2="101" data-line-color="#ecf0f1" data-line-start-type="none" data-line-end-type="none" style="z-index: 16;" data-line-width="6px" data-fragment-index="7"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="78" viewBox="0 101 1 78"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="179" x2="0" y2="101"></line><line stroke="#ecf0f1" stroke-width="6" x1="0" y1="179" x2="0" y2="101"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 265px; top: 383px;" data-block-id="fc41c139389a4079422a9b1cc47f20d0"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="183" data-line-x2="0" data-line-y2="105" data-line-color="#ecf0f1" data-line-start-type="none" data-line-end-type="none" style="z-index: 21;" data-line-width="6px" data-fragment-index="3"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="78" viewBox="0 105 1 78"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="183" x2="0" y2="105"></line><line stroke="#ecf0f1" stroke-width="6" x1="0" y1="183" x2="0" y2="105"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 696px; top: 383px;" data-block-id="776f28d45cbaf3acc5fc6cc2aa5b71bd"><div class="sl-block-content fragment" data-line-x1="0" data-line-y1="179" data-line-x2="0" data-line-y2="101" data-line-color="#ecf0f1" data-line-start-type="none" data-line-end-type="none" style="z-index: 17;" data-line-width="6px" data-fragment-index="6"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="78" viewBox="0 101 1 78"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="179" x2="0" y2="101"></line><line stroke="#ecf0f1" stroke-width="6" x1="0" y1="179" x2="0" y2="101"></line></svg></div></div>
+
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 521px; top: 383px;" data-block-id="2c30f2f43430d4f9cdf59a4f216b6ce0"><div class="sl-block-content fragment" data-line-x1="1" data-line-y1="176" data-line-x2="1" data-line-y2="98" data-line-color="#ecf0f1" data-line-start-type="none" data-line-end-type="none" style="z-index: 18;" data-line-width="6px" data-fragment-index="5"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="78" viewBox="1 98 1 78"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="1" y1="176" x2="1" y2="98"></line><line stroke="#ecf0f1" stroke-width="6" x1="1" y1="176" x2="1" y2="98"></line></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 77px; left: 48px; top: 473px;" data-block-id="d1c3e63df101715f39a83ece38de87f5"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19;" data-fragment-index="1">
+<p>1995 + 1996</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 95px; left: 129px; top: 473px;" data-block-id="2aa2eec2238bfbd3719b887795ef3564"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;" data-fragment-index="2">
+<p>1997</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 96px; left: 224px; top: 473px;" data-block-id="fdaf0c24eccedf4fd6029a29108ee3fe"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23;" data-fragment-index="3">
+<p>1998</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 96px; left: 304px; top: 473px;" data-block-id="ecd8a86818af99d21ba971d6c32a99b8"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24;" data-fragment-index="4">
+<p>1999</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 96px; left: 480px; top: 473px;" data-block-id="9e309476dc68733458674ae17f0ff995"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 25;" data-fragment-index="5">
+<p>2009</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 96px; left: 648px; top: 473px;" data-block-id="3e34198cbbc076b213dd07d0cee0831c"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 26;" data-fragment-index="6">
+<p>2015</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 96px; left: 744px; top: 473px;" data-block-id="7ade2d3c117c614a591c27891f8792a3"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 27;" data-fragment-index="7">
+<p>2016</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 96px; left: 832px; top: 473px;" data-block-id="c194217042d25cae7f2e2cd84ec34974"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 28;" data-fragment-index="8">
+<p>2017</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 123px; left: 37px; top: 330px;" data-block-id="249e4de3b01f4c33f42743c507eab0d0"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 29;" data-fragment-index="1">
+<p>Start</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 121px; left: 119px; top: 332px;" data-block-id="01c1a668994211fccccd8a62f70e720c"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 30;" data-fragment-index="2">
+<p>ES1</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 121px; left: 204px; top: 332px;" data-block-id="95957285d6120841863f1da1d460aa39"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 31;" data-fragment-index="3">
+<p>ES2</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 121px; left: 289px; top: 332px;" data-block-id="cb19c97ae53daf33bfe8dbfdf43ea200"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 32;" data-fragment-index="4">
+<p>ES3</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 121px; left: 460px; top: 332px;" data-block-id="b7ccd7babed0222dbbe2881f63136855"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 33;" data-fragment-index="5">
+<p>ES5</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 108px; left: 648px; top: 295px;" data-block-id="61aeec677bbd75900c865662c0d7f295"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 34;" data-fragment-index="6">
+<p>ES6 / ES2015</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 78px; left: 762px; top: 287px;" data-block-id="272ec4fa35b1a7712f75a02b8131d9c4"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 35;" data-fragment-index="7">
+<p>ES</p>
+
+<p>2016</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 121px; left: 820px; top: 287px;" data-block-id="cc37855affa044b21cfea4e05f521f2b"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 36;" data-fragment-index="8">
+<p>ES</p>
+
+<p>2017</p>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 86px; top: 383px;" data-block-id="1b179d84a0ae5647db54791f163f3045"><div class="sl-block-content fragment" data-line-x1="1" data-line-y1="177" data-line-x2="1" data-line-y2="101" data-line-color="#ecf0f1" data-line-start-type="none" data-line-end-type="none" style="z-index: 37;" data-line-width="6px" data-fragment-index="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="76" viewBox="1 101 1 76"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="1" y1="177" x2="1" y2="101"></line><line stroke="#ecf0f1" stroke-width="6" x1="1" y1="177" x2="1" y2="101"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 349px; top: 383px;" data-block-id="56556676932679a61007d4f253eb1254"><div class="sl-block-content fragment" data-line-x1="39" data-line-y1="180" data-line-x2="39" data-line-y2="102" data-line-color="#ecf0f1" data-line-start-type="none" data-line-end-type="none" style="z-index: 38;" data-line-width="6px" data-fragment-index="4"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="1" height="78" viewBox="39 102 1 78"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="39" y1="180" x2="39" y2="102"></line><line stroke="#ecf0f1" stroke-width="6" x1="39" y1="180" x2="39" y2="102"></line></svg></div></div></section><section data-id="d31742f92fc8d8e47674918392790a1a" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+
+
+<div class="sl-block" data-block-type="text" style="width: 808px; left: 76px; top: 97px; height: auto;" data-block-id="bee7a69f663edc1542de81da0fc8af18"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1><span style="color:#1abc9c">ES2015 Additions</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 437px; left: 0px; top: 254px;" data-block-id="b7c4bd7e98e94448c7b0b329c32c1394"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+<ul>
+	<li class="">let, const</li>
+	<li class="">template strings</li>
+	<li class="">arrow functions</li>
+	<li>default parameters</li>
+	<li>rest and spread operators</li>
+	<li>for...of loops</li>
+	<li>object shorthand notation</li>
+	<li>computed property names</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 524px; left: 430px; top: 254px;" data-block-id="db637b71e152b33257b7898c2585e644"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="1">
+<ul>
+	<li style="color:rgb(236, 240, 241)">object destructuring</li>
+	<li style="color:rgb(236, 240, 241)">array destructuring</li>
+	<li style="color:rgb(236, 240, 241)">class keyword</li>
+	<li style="color:rgb(236, 240, 241)">super and extends keywords</li>
+	<li style="color:rgb(236, 240, 241)">Maps / Sets</li>
+	<li style="color:rgb(236, 240, 241)">Promises</li>
+	<li style="color:rgb(236, 240, 241)">Generators</li>
+	<li style="color:rgb(236, 240, 241)">Object, Number, Array methods</li>
+</ul>
+</div></div></section><section data-id="a2b96bb06b9b11fa6bbe00ce0dafa3d1" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 98px; height: auto;" data-block-id="8210882a237031d7b2d3be77b2127ade"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11; color: rgb(26, 188, 156);">
+<h1><span style="color:#1abc9c">const</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 785px; height: 93px; left: 88px; top: 234px;" data-block-id="73a0aab0f4d8a240c26c3f410d0be377"><div class="sl-block-content fragment notranslate" style="z-index: 12; font-size: 130%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> firstInstructor = <span class="hljs-string">"Colt"</span>;
+
+firstInstructor = <span class="hljs-string">"Elie"</span>; <span class="hljs-comment">// no problem here</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 524px; height: auto;" data-block-id="a24c50b2604aaccc04bf904198c81600"><div class="sl-block-content fragment" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 13;" data-fragment-index="2">
+<h2><span style="font-size:1.0em">Can NEVER redeclare</span></h2>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 785px; height: 160px; left: 88px; top: 346px;" data-block-id="10e4c042e2bc5dbe5a133d08f6c6fe71"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 14; font-size: 130%;" data-fragment-index="1"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">const</span> anotherInstructor = <span class="hljs-string">"Tim"</span>;
+
+anotherInstructor = <span class="hljs-string">"Elie"</span>; <span class="hljs-comment">// TypeError</span>
+
+<span class="hljs-keyword">const</span> anotherInstructor = <span class="hljs-string">"Elie"</span>; <span class="hljs-comment">// SyntaxError</span></code></pre></div></div></section><section data-id="5c82b1a16237757dcef08ec44e8caefb" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 150px; height: auto;" data-block-id="eb781c6dd66225064ea82cdf3db1bc62"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1><span style="color:#1abc9c">Gotcha with const</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 777px; height: 174px; left: 89px; top: 261px;" data-block-id="684d421860c3a4217f7c7f254307c52d"><div class="sl-block-content notranslate" style="z-index: 11; font-size: 113%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">const</span> numbers = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>];
+
+numbers.push(<span class="hljs-number">10</span>); <span class="hljs-comment">// 5</span>
+
+numbers; <span class="hljs-comment">// [1,2,3,4,5] </span>
+
+numbers = <span class="hljs-string">"no!"</span>; <span class="hljs-comment">// TypeError</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 89px; top: 452px; height: auto;" data-block-id="ac68968b15830963de4a7ee28698d590"><div class="sl-block-content fragment" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;" data-fragment-index="0">
+<p><span style="font-size:1.4em">Can mutate if it is an object, but not declare again</span></p>
+</div></div></section><section data-id="464fe6d083648fcb2d016b8a3c3d70b6" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 76px; top: 140px; height: auto;" data-block-id="72d7db5f23fda15a86967aed9f5aba51"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(26, 188, 156);">
+<h1><span style="color:#1abc9c">let</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 787px; height: 166px; left: 85px; top: 262px;" data-block-id="91bd6ce51ff8fe4f91e25140f4ae7b65"><div class="sl-block-content fragment notranslate" style="z-index: 12; font-size: 156%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">let</span> anotherInstructor = <span class="hljs-string">"Tim"</span>;
+
+anotherInstructor = <span class="hljs-string">"Elie"</span>; <span class="hljs-comment">// no problems here!</span>
+
+<span class="hljs-keyword">let</span> anotherInstructor = <span class="hljs-string">"Tim"</span>; <span class="hljs-comment">// SyntaxError</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 78px; top: 447px; height: auto;" data-block-id="a28b32b7b04397af82d6c690681ea993"><div class="sl-block-content fragment" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 13; color: rgb(26, 188, 156);" data-fragment-index="1">
+<p><span style="color:#ecf0f1"><span style="font-size:1.4em">Can reassign, can not redeclare</span></span></p>
+</div></div></section><section data-id="5b28d58a9dc13fbf2670f472e006bc54" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 78px; top: 140px; height: auto;" data-block-id="e9988ab2cca4988c1121436c447d9619"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(26, 188, 156);">
+<h1>Scope with let</h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 787px; height: 226px; left: 87px; top: 262px;" data-block-id="944c9300b5979abe3e877ce6168c2c70"><div class="sl-block-style" style="z-index: 11; transform: rotate(360deg);"><div class="sl-block-content notranslate" style="z-index: 11; font-size: 156%;" data-highlight-theme="solarized-light"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> instructor = <span class="hljs-string">"Elie"</span>;
+
+<span class="hljs-keyword">if</span>(instructor === <span class="hljs-string">"Elie"</span>){
+    <span class="hljs-keyword">let</span> funFact = <span class="hljs-string">"Plays the cello"</span>;
+}
+
+funFact; <span class="hljs-comment">// ReferenceError!</span></code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 929px; left: 16px; top: 506px; height: auto;" data-block-id="c25b65359c48338a40d658a26a3b8942"><div class="sl-block-content fragment" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;" data-fragment-index="0">
+<p><span style="color:#ecf0f1"><span style="font-size:1.4em">blocks create scope!</span></span></p>
+</div></div></section><section data-id="66616697ec4991b391599ad0eaee9663" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 65px; top: 104px; height: auto;" data-block-id="fd76a4c0ada3c474dafbb05d16e7d388"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11; color: rgb(26, 188, 156);">
+<h1>Hoisting with let</h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 882px; height: 157px; left: 41px; top: 225px;" data-block-id="ca67a257627c12f495e0a9e41f5e0145"><div class="sl-block-style" style="z-index: 12; transform: rotate(360deg);"><div class="sl-block-content notranslate" style="z-index: 12; font-size: 126%;" data-highlight-theme="solarized-light"><pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">helloInstructor</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> elie;
+    <span class="hljs-keyword">var</span> elie = <span class="hljs-string">"ME!"</span>;
+}
+
+helloInstructor(); <span class="hljs-comment">// undefined</span></code></pre></div></div></div>
+<div class="sl-block" data-block-type="text" style="width: 880px; left: 28px; top: 560px; height: auto;" data-block-id="1b78fcec7e8e4b3ef4d78a329f1eb799"><div class="sl-block-style" style="z-index: 13; transform: rotate(360deg);"><div class="sl-block-content fragment" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 13;" data-fragment-index="1">
+<p><span style="font-size:1.0em"><span style="color:#ecf0f1">let does hoist, but we can not access the value - it is in a TDZ (Temporal Dead Zone)</span></span></p>
+</div></div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 888px; height: 156px; left: 41px; top: 397px;" data-block-id="9a5f812ccaf31fefaf797e3642b0f25d"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 14; font-size: 126%;" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">helloSecondInstructor</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">return</span> colt;
+    <span class="hljs-keyword">let</span> colt = <span class="hljs-string">"HIM!"</span>;
+}
+
+helloSecondInstructor(); <span class="hljs-comment">// ReferenceError</span></code></pre></div></div></section><section data-id="a52c041563d6083d59918123d337ba6b" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 100px; height: auto;" data-block-id="cf0dc6dfade130eeeda9daf9b161bb76"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11; color: rgb(26, 188, 156);">
+<h1>Use Cases for let</h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 848px; height: 152px; left: 66px; top: 204px;" data-block-id="512fd0bc337068001ff65d7303b9c482"><div class="sl-block-style" style="z-index: 12; transform: rotate(360deg);"><div class="sl-block-content notranslate" style="z-index: 12; font-size: 102%;" data-highlight-theme="solarized-light"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++){
+    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">console</span>.log(i);
+    },<span class="hljs-number">1000</span>)
+}
+
+<span class="hljs-comment">// 5 (five times)</span></code></pre></div></div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 848px; height: 290px; left: 66px; top: 362px;" data-block-id="574efae7298f3e247028818eae0e93ce"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 102%;" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++){
+    (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">j</span>)</span>{
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-built_in">console</span>.log(j);
+        },<span class="hljs-number">1000</span>);
+    })(i)
+}
+
+
+<span class="hljs-comment">// 0</span>
+<span class="hljs-comment">// 1</span>
+<span class="hljs-comment">// 2</span>
+<span class="hljs-comment">// 3</span>
+<span class="hljs-comment">// 4</span></code></pre></div></div></section><section data-id="eaebc23684b1bbd7419f164c49742272" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 140px; height: auto;" data-block-id="2599214e4f35f44e07f4b4e4e9f6aac0"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(26, 188, 156);">
+<h1>Refactoring with let</h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 820px; height: 281px; left: 80px; top: 309px;" data-block-id="fff8c348d897470f3433bef56eab116d"><div class="sl-block-style" style="z-index: 11; transform: rotate(360deg);"><div class="sl-block-content notranslate" style="z-index: 11; font-size: 126%;" data-highlight-theme="solarized-light"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++){
+    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">console</span>.log(i);
+    },<span class="hljs-number">1000</span>);
+}
+
+<span class="hljs-comment">// 0</span>
+<span class="hljs-comment">// 1</span>
+<span class="hljs-comment">// 2</span>
+<span class="hljs-comment">// 3</span>
+<span class="hljs-comment">// 4</span></code></pre></div></div></div>
+</section><section data-id="5a9584bc29113dc62f9e7619ab7afcfb" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 42px; top: 27px;" data-block-id="0116da181beb4e7a969b5310aca99e79"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;" dir="ui">
+<h1><span style="font-size:4.0em">YOUR</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 42px; top: 283px;" data-block-id="cdb7733b22a04e2ca4e712650c8ee891"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h1><span style="color:#1abc9c"><span style="font-size:4.0em">TURN</span></span></h1>
+</div></div></section><section data-id="271355fe60241ea5873bfcce5b474618" hidden="" aria-hidden="true" class="future" style="display: none;">
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 78px; top: 113px; height: auto;" data-block-id="9cc22c87ac3d7052c60197635c7e62ca"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1><span style="color:#1abc9c">Template Strings</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 899px; height: 149px; left: 35px; top: 236px;" data-block-id="76e04a0d851f402922e3d2f6e0f150e4"><div class="sl-block-content notranslate" style="z-index: 12; font-size: 134%;" data-highlight-theme="solarized-light"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> firstName = <span class="hljs-string">"Elie"</span>;
+
+<span class="hljs-keyword">var</span> lastName = <span class="hljs-string">"Schoppik"</span>;
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Hello "</span> + firstName + <span class="hljs-string">" "</span> + lastName); <span class="hljs-comment">// error prone!</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 522px; height: auto;" data-block-id="57b859807bbeb0fa4f53025b20191381"><div class="sl-block-content fragment" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 13;" data-fragment-index="1">
+<p><span style="font-size:1.4em">Make sure you use backticks!</span></p>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 900px; height: 35px; left: 35px; top: 420px;" data-block-id="e1d1ebbe39f17efe986be71f74995e1d"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 14; font-size: 134%;" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hello <span class="hljs-subst">${firstName}</span> <span class="hljs-subst">${lastName}</span>`</span>); <span class="hljs-comment">// Much nicer!</span></code></pre></div></div></section><section data-id="cdd7eac20dccd86f557b0d084f8b21ce" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 898px; height: 325px; left: 35px; top: 235px;" data-block-id="894ae285c43fb1dd646098c239f0b276"><div class="sl-block-content notranslate" style="z-index: 10; font-size: 134%;" data-highlight-theme="solarized-light"><pre class="javascript"><code class="hljs"><span class="hljs-string">"
+Hello
+"</span> <span class="hljs-comment">// does not work!</span>
+
+<span class="hljs-string">`
+Hello
+How
+Nice
+Is
+This!
+`</span> <span class="hljs-comment">// works well!</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 78px; top: 113px; height: auto;" data-block-id="b319bddb7192f3b097060b7cb34776c7"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+<h1><span style="color:#1abc9c">Multiline Strings</span></h1>
+</div></div></section><section data-id="ea4d30450d8a9cd4eb7fdaba4be6185f" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 899px; height: 114px; left: 35px; top: 236px;" data-block-id="884608a703858152849fa5b93fbde593"><div class="sl-block-content notranslate" style="z-index: 10; font-size: 134%;" data-highlight-theme="solarized-light"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES5</span>
+<span class="hljs-keyword">var</span> add = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a,b</span>)</span>{
+    <span class="hljs-keyword">return</span> a+b;
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 78px; top: 113px; height: auto;" data-block-id="715379ca80bec4a2d9c84d42924d3e42"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1><font color="#1abc9c">Arrow Functions</font></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 899px; height: 114px; left: 31px; top: 433px;" data-block-id="a926635be707f0f7f2dd0ca882aee201"><div class="sl-block-content fragment notranslate" style="z-index: 12; font-size: 134%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES2015</span>
+<span class="hljs-keyword">var</span> add = <span class="hljs-function">(<span class="hljs-params">a,b</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> a+b;
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 368px;" data-block-id="a2409531014739095b7d68c32c962411"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p>Replace the keyword 'function' with =&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 168px; top: 576px;" data-block-id="1dec55b84cb57e7ca6223e3e6ffdcb26"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" data-fragment-index="1">
+<p>Just the start...</p>
+</div></div></section><section data-id="28071f845b0bf23822bf81e43abdfb68" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+
+<div class="sl-block" data-block-type="text" style="width: 884px; left: 38px; top: 113px; height: auto;" data-block-id="d62f2b66d147084f9c475c2d8731debc"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1><span style="color:#1abc9c">One-line arrow functions</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 899px; height: 101px; left: 31px; top: 389px;" data-block-id="3c8b4351dc9453923695f7e74c4d993e"><div class="sl-block-content fragment notranslate" style="z-index: 11; font-size: 155%;" data-highlight-theme="solarized-light" data-fragment-index="2"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> add = <span class="hljs-function">(<span class="hljs-params">a,b</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> a+b;
+}
+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 826px; left: 48px; top: 241px;" data-block-id="29a2b7a1c61d15af50cd338d633f40c8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:0.9em">You can put arrow functions on one line.</span></li>
+	<li class="fragment" data-fragment-index="1"><span style="font-size:0.9em">But you must omit the return keyword as well as curly braces </span></li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 160px; top: 331px;" data-block-id="b340a9691f9cebddb6668b652ca62dc2"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="2">
+<p>We can go from:</p>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 899px; height: 46px; left: 23px; top: 552px;" data-block-id="d9c6300721831cd43424898ea01b5e68"><div class="sl-block-content fragment notranslate" style="z-index: 15; font-size: 155%;" data-highlight-theme="solarized-light" data-fragment-index="3"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> add = <span class="hljs-function">(<span class="hljs-params">a,b</span>) =&gt;</span> a+b;</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 161px; top: 499px;" data-block-id="f0cf4c716df939379e477d05c08ed633"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;" data-fragment-index="3">
+<p>To:</p>
+</div></div></section><section data-id="b6342df516fa609e45ffdbd65977ee6a" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+
+<div class="sl-block" data-block-type="text" style="width: 884px; left: 33px; top: 92px; height: auto;" data-block-id="9e361c84de8e7449176f2a9429bba9ef"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1><span style="color:#1abc9c"><span style="font-size:0.7em">Refactoring with arrow functions</span></span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 939px; height: 147px; left: 5px; top: 281px;" data-block-id="4ae0bfb3c47bb89ebcb6955cbb37fb50"><div class="sl-block-content fragment notranslate" style="z-index: 11; font-size: 160%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES5</span>
+[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>)</span>{
+    <span class="hljs-keyword">return</span> value * <span class="hljs-number">2</span>;
+}); <span class="hljs-comment">// [2,4,6]</span></code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="width: 939px; height: 101px; left: 11px; top: 510px;" data-block-id="98fabab9e006053e96f6e2ad85b80a0b"><div class="sl-block-content fragment notranslate" style="z-index: 12; font-size: 160%;" data-highlight-theme="solarized-light" data-fragment-index="1"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES2015</span>
+[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].map(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> value * <span class="hljs-number">2</span>); <span class="hljs-comment">// [2,4,6];</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 160px; top: 228px;" data-block-id="911aac5941b62affb920fb66a243796c"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="0">
+<p>We can go from:</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 161px; top: 451px;" data-block-id="fa7ade57557a9a79be05da914ea8e117"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" data-fragment-index="1">
+<p>To:</p>
+</div></div></section><section data-id="b2c653e291130027756e91cee619486a" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+
+<div class="sl-block" data-block-type="text" style="width: 884px; left: 38px; top: 56px; height: auto;" data-block-id="5e6d572902ffea2f94ede53582afb0df"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1><span style="color:#1abc9c">Let's do it again!</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 939px; height: 217px; left: 11px; top: 215px;" data-block-id="c5adeb593523684cfe659c9fdf254596"><div class="sl-block-content fragment notranslate" style="z-index: 11; font-size: 110%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">doubleAndFilter</span>(<span class="hljs-params">arr</span>)</span>{
+    <span class="hljs-keyword">return</span> arr.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>)</span>{
+        <span class="hljs-keyword">return</span> value * <span class="hljs-number">2</span>;
+    }).filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">value</span>)</span>{
+        <span class="hljs-keyword">return</span> value % <span class="hljs-number">3</span> === <span class="hljs-number">0</span>;
+    })
+};
+
+doubleAndFilter([<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">20</span>]); <span class="hljs-comment">// [30]</span></code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="width: 938px; height: 79px; left: 12px; top: 480px;" data-block-id="beae28619e1f6020d422d86051a8d81b"><div class="sl-block-content fragment notranslate" style="z-index: 12; font-size: 110%;" data-highlight-theme="solarized-light" data-fragment-index="1"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> doubleAndFilter = <span class="hljs-function"><span class="hljs-params">arr</span> =&gt;</span> arr.map(<span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> val * <span class="hljs-number">2</span>).filter(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> num % <span class="hljs-number">3</span> === <span class="hljs-number">0</span>);
+
+doubleAndFilter([<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">20</span>]); <span class="hljs-comment">// [30]</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 877px; left: 42px; top: 572px;" data-block-id="20277f53b0513a418478c0fb4f6ba031"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="2">
+<p>Notice that if we only have one parameter, we do not need parenthesis around it with arrow functions!</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 160px; top: 161px;" data-block-id="0c8facae4f329e5a35087296228d3ad0"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="0">
+<p>We can go from:</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 160px; top: 432px;" data-block-id="c23cb7d31eaf3ad3d62bec4138d823c2"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;" data-fragment-index="1">
+<p>To:</p>
+</div></div></section><section data-id="586c2c13de7f2803b61ac20949779ac6" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+
+<div class="sl-block" data-block-type="text" style="width: 884px; left: 32px; top: 162px; height: auto;" data-block-id="ea58a2212a21b15abfb45f255afa9d6b"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1><font color="#1abc9c">So...what's the catch?</font></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 922px; left: 19px; top: 306px;" data-block-id="ce1f1994255334732f3a01aac0122421"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li style="text-align:left" class="fragment" data-fragment-index="0"><span style="font-size:1.0em">Arrow functions are not exactly the same as regular functions!</span></li>
+	<li style="text-align:left" class="fragment" data-fragment-index="1"><span style="font-size:1.0em"><span style="color:rgb(236, 240, 241)">Arrow functions do not get their own 'this' </span><span style="color:rgb(236, 240, 241)">keyword</span></span></li>
+	<li style="text-align:left" class="fragment" data-fragment-index="2"><span style="font-size:1.0em"><span style="color:rgb(236, 240, 241)">Inside of an arrow function, the keyword</span><span style="color:rgb(236, 240, 241); text-align:start">&nbsp;</span><span style="color:rgb(236, 240, 241)">this</span><span style="color:rgb(236, 240, 241); text-align:start">&nbsp;has its original meaning from the enclosing context.</span></span></li>
+	<li style="text-align:left" class="fragment" data-fragment-index="3"><span style="font-size:1.0em"><span style="color:rgb(236, 240, 241)">The fact that arrow functions do not have their own this keyword can be quite helpful - you just need to understand when you might NOT want that!</span></span></li>
+</ul>
+</div></div>
+
+
+</section><section data-id="54608c93b10966967a2b1066ce7aa70e" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 930px; height: 165px; left: 15px; top: 209px;" data-block-id="b527863a31d71784a8836ba8518e9fb7"><div class="sl-block-content notranslate" style="z-index: 10;" data-highlight-theme="solarized-light"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> instructor = {
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">"Elie"</span>,
+    <span class="hljs-attr">sayHi</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Hello "</span> + <span class="hljs-keyword">this</span>.firstName);
+        }, <span class="hljs-number">1000</span>);
+    }
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 904px; left: 25px; top: 92px; height: auto;" data-block-id="32dbb753f7c4d6d60dfddd39ea59949e"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1><span style="color:#1abc9c"><span style="font-size:0.9em">A familiar situation...</span></span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 930px; height: 164px; left: 15px; top: 420px;" data-block-id="f0b6a1d8dc1538c616b43132fa558bf4"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 12;" data-fragment-index="1"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> instructor = {
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">"Elie"</span>,
+    <span class="hljs-attr">sayHi</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Hello "</span> + <span class="hljs-keyword">this</span>.firstName);
+        }.bind(<span class="hljs-keyword">this</span>), <span class="hljs-number">1000</span>);
+    }
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 924px; height: 36px; left: 15px; top: 380px;" data-block-id="a40a1e19b3be094a325bf439cdf6d903"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13;" data-fragment-index="0"><pre class="javascript"><code class="hljs">instructor.sayHi(); <span class="hljs-comment">// "Hello undefined"</span>
+</code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 924px; height: 36px; left: 16px; top: 594px;" data-block-id="c3d769f32e1e1f349a4fdbe0ded07f99"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 15;" data-fragment-index="2"><pre class="javascript"><code class="hljs">instructor.sayHi(); <span class="hljs-comment">// "Hello Elie"</span>
+</code></pre></div></div></section><section data-id="d03698fe05df612d924a719aa8fc8b2b" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 918px; height: 239px; left: 16px; top: 197px;" data-block-id="8f77438428651ba749622ffc3e963c23"><div class="sl-block-content notranslate" style="z-index: 10; font-size: 115%;" data-highlight-theme="solarized-light"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> instructor = {
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">"Elie"</span>,
+    <span class="hljs-attr">sayHi</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Hello "</span> + <span class="hljs-keyword">this</span>.firstName);
+        }, <span class="hljs-number">1000</span>);
+    }
+}
+
+instructor.sayHi(); <span class="hljs-comment">// "Hello Elie"</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 947px; left: 8px; top: 85px; height: auto;" data-block-id="149b7c5bf46957d6160262fe4e3307a2"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1><span style="font-size:0.7em"><span style="color:#1abc9c">Arrow functions as an alternative</span></span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 904px; left: 29px; top: 504px; height: auto;" data-block-id="cebca5e5939754e63e39a1e36f99ed60"><div class="sl-block-content fragment" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;" data-fragment-index="1" dir="ui">
+<p><span style="font-size:0.9em"><span style="color:#ecf0f1">Arrow functions do not have their own keyword this. &nbsp;The keyword this refers to its enclosing context</span>&nbsp;<span style="color:#ecf0f1">(the instructor object).</span></span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 904px; left: 30px; top: 458px; height: auto;" data-block-id="7ac464cbe94c4138b67aa954fedcce21"><div class="sl-block-content fragment" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 14;" data-fragment-index="0" dir="ui">
+<p><span style="font-size:1.0em"><span style="color:#ecf0f1">But why does this work?</span></span></p>
+</div></div></section><section data-id="1a842b5b80e50cb5d12c12155ac75d4a" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 918px; height: 224px; left: 17px; top: 291px;" data-block-id="fae12974a08310b044c605cc94bd704d"><div class="sl-block-content notranslate" style="z-index: 10;" data-highlight-theme="solarized-light"><pre class="none"><code class="hljs javascript"><span class="hljs-keyword">var</span> instructor = {
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">"Elie"</span>,
+    <span class="hljs-comment">// why can't we use an arrow function here?</span>
+    <span class="hljs-attr">sayHi</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        setTimeout(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Hello "</span> + <span class="hljs-keyword">this</span>.firstName);
+        }, <span class="hljs-number">1000</span>);
+    }
+}
+
+instructor.sayHi(); <span class="hljs-comment">// "Hello Elie"</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 947px; left: 0px; top: 92px; height: auto;" data-block-id="a22abafc53a375e375364af974ca73c1"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1><span style="color:#1abc9c"><span style="font-size:0.9em">One quick gotcha</span></span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 904px; left: 28px; top: 524px; height: auto;" data-block-id="2810805dc320721b8f8c97a7253e0390"><div class="sl-block-content fragment" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;" data-fragment-index="0" dir="ui">
+<p>If we use an arrow function, the sayHi function will not have its own keyword this - and the keyword this will not refer to the instructor object anymore!</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 904px; left: 17px; top: 202px; height: auto;" data-block-id="f2351f92614c12b8ed4a6c02e58cef62"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 13;" dir="ui">
+<p><span style="font-size:1.0em"><span style="color:#ecf0f1">We used both the function keyword and an arrow function - why?</span></span></p>
+</div></div></section><section data-id="904057dface1a4b80b9c9cfdf61a2eb5" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 912px; height: 183px; left: 24px; top: 350px;" data-block-id="3c8d2675988bc80be7720a367e05ec13"><div class="sl-block-content fragment notranslate" style="z-index: 10; font-size: 164%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> add = <span class="hljs-function">(<span class="hljs-params">a,b</span>) =&gt;</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">arguments</span>;
+}
+
+add(<span class="hljs-number">2</span>,<span class="hljs-number">4</span>); <span class="hljs-comment">// ReferenceError: arguments is not defined</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 904px; left: 24px; top: 140px; height: auto;" data-block-id="3a27096ba72fc3b93b1891990fa6b0a7"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+<h1><span style="font-size:0.7em"><span style="color:#1abc9c">Arrow Functions and `arguments`</span></span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 904px; left: 24px; top: 270px; height: auto;" data-block-id="4a249495cb33bb39da7db0057b84a3cf"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 13;">
+<p><span style="font-size:1.0em">arrow functions do not get their own keyword arguments</span></p>
+</div></div></section><section data-id="4f214beaa1f976abd3879fd95a749fd7" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+
+<div class="sl-block" data-block-type="text" style="width: 904px; left: 24px; top: 113px; height: auto;" data-block-id="fc19202555cf1f451c92a0d0c7c88546"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1><span style="font-size:0.7em"><span style="color:#1abc9c">One more note about 'arguments'</span></span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 904px; left: 17px; top: 233px; height: auto;" data-block-id="bcd809133a31c7b8524e41cac20bdcba"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<p><span style="font-size:0.9em">An arguments keyword can be accessed if the arrow function is inside of another function (it will be the outer functions arguments)</span></p>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 913px; height: 197px; left: 24px; top: 350px;" data-block-id="0f326e21f3df5d67b4e748ce5c9e095e"><div class="sl-block-content fragment notranslate" style="z-index: 13; font-size: 134%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">outer</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">return</span> innerFunction = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-built_in">arguments</span>;
+  }
+}
+
+outer(<span class="hljs-number">1</span>)(<span class="hljs-number">2</span>); <span class="hljs-comment">// only prints out [1]</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 904px; left: 28px; top: 560px; height: auto;" data-block-id="cf6425d97ee8b8d3896f800aaffe0b19"><div class="sl-block-content fragment" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 14;" data-fragment-index="1">
+<p class="visible">If you REALLY need the arguments to an arrow function, use the rest operator - we'll see that very soon!</p>
+</div></div></section><section data-id="fbfda396d7834f0a5b51359decabefb0" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 898px; height: 185px; left: 34px; top: 445px;" data-block-id="c2f83f6a8d7da8800b2662602a79d835"><div class="sl-block-content fragment notranslate" style="z-index: 11; font-size: 134%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="none"><code class="hljs javascript"><span class="hljs-keyword">var</span> instructor = {
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">"Elie"</span>,
+    <span class="hljs-attr">sayHi</span>: <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-string">`Hello <span class="hljs-subst">${<span class="hljs-keyword">this</span>.firstName}</span>`</span>;
+}
+
+instructor.sayHi(); <span class="hljs-comment">// "Hello undefined"</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 79px; top: 70px; height: auto;" data-block-id="5c9a4dc106e268da5daa2da2f9af6dd6"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+<h1><span style="color:#1abc9c">When NOT to use Arrow Functions</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 908px; left: 35px; top: 292px;" data-block-id="a681dfaceb3775460e15981e4f39944a"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
+<p>Arrow functions should NEVER be used as methods in objects since we will get the incorrect value of the keyword this. ES2015 provides a better alternative - we'll see it soon!</p>
+</div></div></section><section data-id="a2283c9226025f8d7dc90e88aec83d25" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 42px; top: 27px;" data-block-id="24ec36f8c1557f312b54799b7b2eadd5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;" dir="ui">
+<h1><span style="font-size:4.0em">YOUR</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 42px; top: 283px;" data-block-id="ad155b775622bbc70a252f748ab16101"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h1><span style="color:#1abc9c"><span style="font-size:4.0em">TURN</span></span></h1>
+</div></div></section><section data-id="6c76a4ec71101b99660ab1d7c386d257" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 899px; height: 145px; left: 35px; top: 236px;" data-block-id="cc58f00ced5cbe9768679e5f6bc99835"><div class="sl-block-content notranslate" style="z-index: 11; font-size: 134%;" data-highlight-theme="solarized-light"><pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">a, b</span>)</span>{
+    <span class="hljs-keyword">return</span> a+b;
+}
+
+add(); <span class="hljs-comment">// NaN because a is undefined and b is undefined</span>
+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 78px; top: 113px; height: auto;" data-block-id="50c6228d1e957e5042e85b0ca0a82b39"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+<h1><span style="color:#1abc9c">Default Parameters</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 900px; height: 181px; left: 35px; top: 401px;" data-block-id="39882ea104dfcc2823da8b1aa3f75bf9"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 134%;" data-fragment-index="0"><pre class="none  php"><code class="hljs php"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">a=<span class="hljs-number">10</span>, b=<span class="hljs-number">20</span></span>)</span>{
+    <span class="hljs-keyword">return</span> a+b;
+}
+
+add(); <span class="hljs-comment">// 30</span>
+add(<span class="hljs-number">20</span>); <span class="hljs-comment">// 40</span></code></pre></div></div></section><section data-id="1010564cf9b862e8240b9df7299da7d0" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 899px; height: 250px; left: 30px; top: 225px;" data-block-id="a7981404bfe08af1142d6e559009f2ea"><div class="sl-block-content fragment notranslate" style="z-index: 11; font-size: 110%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>];
+
+<span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> val <span class="hljs-keyword">of</span> arr){
+    <span class="hljs-built_in">console</span>.log(val);
+}
+
+<span class="hljs-comment">// 1</span>
+<span class="hljs-comment">// 2</span>
+<span class="hljs-comment">// 3</span>
+<span class="hljs-comment">// 4</span>
+<span class="hljs-comment">// 5</span>
+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 66px; top: 113px; height: auto;" data-block-id="9edf2887bec4c1ec2277430a6d9a7127"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+<h1><span style="color:#1abc9c">For...of</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 900px; left: 30px; top: 492px;" data-block-id="b9a7f020a51302f90fd56143960199b5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<ul>
+	<li class="fragment" data-fragment-index="1">Can't access an index</li>
+	<li class="fragment" data-fragment-index="2">Can only be used on data structures with a Symbol.iterator method implemented (no objects!)</li>
+</ul>
+</div></div></section><section data-id="47bbf9b7218b8225653b399733996370" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 900px; height: 249px; left: 33px; top: 198px;" data-block-id="514f9db66000fac42cc8bfb3934de826"><div class="sl-block-content fragment notranslate" style="z-index: 10; font-size: 110%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printRest</span>(<span class="hljs-params">a,b,...c</span>)</span>{
+    <span class="hljs-built_in">console</span>.log(a);
+    <span class="hljs-built_in">console</span>.log(b);
+    <span class="hljs-built_in">console</span>.log(c);
+}
+
+printRest(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>); 
+
+<span class="hljs-comment">// 1</span>
+<span class="hljs-comment">// 2</span>
+<span class="hljs-comment">// [3,4,5]</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 74px; top: 92px; height: auto;" data-block-id="a2e732a5d1e3ee1cca2e313a4209f707"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1><span style="color:#1abc9c">Rest</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 893px; left: 33px; top: 456px; height: auto;" data-block-id="672293aca4d98e09d98cf0c43642fa50"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 13;">
+<ul>
+	<li class="fragment" data-fragment-index="1">The rest operator always returns an array&nbsp;</li>
+	<li class="fragment" data-fragment-index="2">Is called the rest operator "only" when it is a parameter to a function</li>
+	<li class="fragment" data-fragment-index="3">Is accessed without the ... in a function</li>
+	<li class="fragment" data-fragment-index="4"><span style="color:rgb(236, 240, 241); text-align:left">A better alternative to using the arguments array-like- object</span></li>
+</ul>
+</div></div></section><section data-id="e0c00f3e212345dc20e19ee4d49754d6" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 942px; height: 199px; left: 9px; top: 181px;" data-block-id="bff682365c6a13b1c4a288a481b2f717"><div class="sl-block-content notranslate" style="z-index: 10; font-size: 120%;" data-highlight-theme="solarized-light"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES5</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sumArguments</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">var</span> total = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">arguments</span>.length; i++){
+        total += <span class="hljs-built_in">arguments</span>[i];
+    }
+    <span class="hljs-keyword">return</span> total;
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 70px; height: auto;" data-block-id="f47993adc3deca9405e25e3aa61d4c55"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+<h1><span style="color:#1abc9c">Rest Continued</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 942px; height: 60px; left: 9px; top: 570px;" data-block-id="a08591e6f606a76035d495af89315cd5"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 120%;" data-fragment-index="1"><pre class="none  php"><code class="hljs php"><span class="hljs-comment">// ES2015</span>
+<span class="hljs-keyword">var</span> sumArguments = (...args) =&gt; args.reduce((acc, next) =&gt; acc + next);</code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="width: 942px; height: 173px; left: 9px; top: 387px;" data-block-id="b73c4f5ee8b190a67002c990bc0ba33a"><div class="sl-block-content fragment notranslate" style="z-index: 14; font-size: 120%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// A little fancier ES5</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sumArguments</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">var</span> argumentsArray = [].slice.call(<span class="hljs-built_in">arguments</span>);
+    <span class="hljs-keyword">return</span> argumentsArray.reduce(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">accumulator,nextValue</span>)</span>{
+        <span class="hljs-keyword">return</span> accumulator + nextValue;
+    });
+}</code></pre></div></div></section><section data-id="65fa73dfc2c7de61b560197330a3ad76" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+
+<div class="sl-block" data-block-type="text" style="width: 900px; left: 45px; top: 92px; height: auto;" data-block-id="90423127a4f1ba13381d604b6fb05fc6"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1><font color="#1abc9c">Spread</font></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 900px; height: 167px; left: 45px; top: 393px;" data-block-id="50805ead53cef6355cc3497bf33dccd4"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 12; font-size: 130%;" data-fragment-index="1"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES5</span>
+<span class="hljs-keyword">var</span> arr1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
+<span class="hljs-keyword">var</span> arr2 = [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>];
+<span class="hljs-keyword">var</span> arr3 = [<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];
+
+<span class="hljs-keyword">var</span> combined = arr1.concat(arr2).concat(arr3);
+</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 900px; left: 45px; top: 210px;" data-block-id="e0f7f4ce39ec186f766814180420c6cf"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="0">
+<ul>
+	<li><span style="font-size:0.9em">Used on arrays to spread each value out (as a comma separated value)</span></li>
+	<li><span style="font-size:0.9em"><span style="color:rgb(236, 240, 241)">Useful when you have an array, but what you are working with expects comma separated values</span></span></li>
+</ul>
+</div></div>
+
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 900px; height: 66px; left: 45px; top: 578px;" data-block-id="52d2edeff3f9c331c90f7bfa2bc9f754"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 15; font-size: 130%;" data-fragment-index="2"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES2015</span>
+<span class="hljs-keyword">var</span> combined = [...arr1, ...arr2, ...arr3];</code></pre></div></div></section><section data-id="1b8c06b66e37be9bb5d9c33040cbafb5" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 900px; height: 74px; left: 44px; top: 516px;" data-block-id="f93e3adaef4480e2d199184bc9fbb197"><div class="sl-block-content fragment notranslate" style="z-index: 11; font-size: 150%;" data-highlight-theme="solarized-light" data-fragment-index="2"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES2015</span>
+<span class="hljs-built_in">Math</span>.max(...arr); <span class="hljs-comment">// 5</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 828px; left: 66px; top: 132px; height: auto;" data-block-id="ef75926b70e9684b4c564e4d3c751d43"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+<h1><span style="color:#1abc9c">Spread instead of apply</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 900px; height: 101px; left: 44px; top: 289px;" data-block-id="3e31f41e6cfe05ffe0f85fa835bd0467"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 150%;" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">1</span>,<span class="hljs-number">5</span>];
+
+<span class="hljs-built_in">Math</span>.max(arr); <span class="hljs-comment">// NaN</span></code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 900px; height: 79px; left: 44px; top: 411px;" data-block-id="e55e2a5a0ef424ac6957f1d1d82ca48d"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 14; font-size: 150%;" data-fragment-index="1"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES5</span>
+<span class="hljs-built_in">Math</span>.max.apply(<span class="hljs-keyword">this</span>, arr); <span class="hljs-comment">// 5</span></code></pre></div></div></section><section data-id="14f0e44756ad4aad6c6d23b342e947d0" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+
+<div class="sl-block" data-block-type="text" style="width: 828px; left: 37px; top: 102px; height: auto;" data-block-id="0ee8816dc9d535d8026f567e080b7a14"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1><span style="color:#1abc9c">One more time</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 900px; height: 157px; left: 30px; top: 226px;" data-block-id="c5ae75592adbff13bdd5c5594ff34efc"><div class="sl-block-content notranslate" data-highlight-theme="solarized-light" style="z-index: 12; font-size: 150%;"><pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sumValues</span>(<span class="hljs-params">a,b,c</span>)</span>{
+    <span class="hljs-keyword">return</span> a+b+c;
+}
+
+<span class="hljs-keyword">var</span> nums = [<span class="hljs-number">12</span>,<span class="hljs-number">15</span>,<span class="hljs-number">20</span>];</code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="width: 900px; height: 75px; left: 30px; top: 523px;" data-block-id="83ad0254561e48799391401987d6f6e1"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 150%;" data-fragment-index="1"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES2015</span>
+sumValues(...nums); <span class="hljs-comment">// 47</span></code></pre></div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 900px; height: 81px; left: 31px; top: 409px;" data-block-id="2f11e30ae32458bc5309649d86ea8dde"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 14; font-size: 150%;" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES5</span>
+sumValues.apply(<span class="hljs-keyword">this</span>, nums); <span class="hljs-comment">// 47</span></code></pre></div></div></section><section data-id="809648c5beb6483bc72dd7afe6e04cc0" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 900px; height: 221px; left: 30px; top: 185px;" data-block-id="7a4855bf0e7323ffcd2d5c71b3ae1d51"><div class="sl-block-content fragment notranslate" style="z-index: 11; font-size: 134%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> firstName = <span class="hljs-string">"Elie"</span>;
+<span class="hljs-keyword">var</span> lastName = <span class="hljs-string">"Schoppik"</span>;
+
+<span class="hljs-comment">// ES5</span>
+<span class="hljs-keyword">var</span> instructor = {
+    <span class="hljs-attr">firstName</span>: firstName,
+    <span class="hljs-attr">lastName</span>: lastName
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 70px; height: auto;" data-block-id="01546e4ac66b2ba916860e85c9e88c9b"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+<h1><span style="color:#1abc9c"><span style="font-size:0.7em">Object Shorthand Notation</span></span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 900px; height: 219px; left: 30px; top: 422px;" data-block-id="f4b584c22b8404a2fb1d912088f1469b"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 134%;" data-fragment-index="1"><pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> firstName = <span class="hljs-string">"Elie"</span>;
+<span class="hljs-keyword">var</span> lastName = <span class="hljs-string">"Schoppik"</span>;
+
+<span class="hljs-comment">// ES2015</span>
+<span class="hljs-keyword">var</span> instructor = {
+    firstName,
+    lastName
+}</code></pre></div></div></section><section data-id="d068eba984df83fd97fbd77a4a13e61c" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 899px; height: 170px; left: 35px; top: 236px;" data-block-id="58dfef243ae25b4dc227be323561caab"><div class="sl-block-content fragment notranslate" style="z-index: 11; font-size: 134%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="none"><code class="hljs actionscript"><span class="hljs-comment">// ES5</span>
+<span class="hljs-keyword">var</span> instructor = {
+    sayHello: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"Hello!"</span>;
+    }    
+}</code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 78px; top: 113px; height: auto;" data-block-id="65e21686646f90e82fd8411b2f4da607"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+<h1><font color="#1abc9c">Object Methods</font></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 900px; height: 184px; left: 36px; top: 420px;" data-block-id="3cec1055e09292276523627aeea31f74"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 134%;" data-fragment-index="1"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES2015 - do NOT use arrow functions here!</span>
+<span class="hljs-keyword">var</span> instructor = {
+    sayHello(){
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"Hello!"</span>;
+    }
+}</code></pre></div></div></section><section data-id="94b88d95e72f23b7983f10c3e2a8e7aa" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 899px; height: 180px; left: 30px; top: 181px;" data-block-id="44130db633ffa58380782a6e2d5fcf6a"><div class="sl-block-content fragment notranslate" style="z-index: 11; font-size: 134%;" data-highlight-theme="solarized-light" data-fragment-index="0"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES5</span>
+<span class="hljs-keyword">var</span> firstName = <span class="hljs-string">"Elie"</span>;
+<span class="hljs-keyword">var</span> instructor = {};
+instructor[firstName] = <span class="hljs-string">"That's me!"</span>;
+
+instructor.Elie; <span class="hljs-comment">// "That's me!"</span></code></pre></div></div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 66px; height: auto;" data-block-id="93803f23a394b541479330785b825aea"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+<h1><span style="color:#1abc9c"><span style="font-size:0.7em">Computed Property Names</span></span></h1>
+</div></div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 900px; height: 219px; left: 30px; top: 386px;" data-block-id="c158d3764533e8ca91fc148132a6aa99"><div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 134%;" data-fragment-index="1"><pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES2015</span>
+<span class="hljs-keyword">var</span> firstName = <span class="hljs-string">"Elie"</span>;
+<span class="hljs-keyword">var</span> instructor = {
+    [firstName]: <span class="hljs-string">"That's me!"</span>
+}
+
+instructor.Elie; <span class="hljs-comment">// "That's me!"</span></code></pre></div></div></section><section data-id="c45070c3e46fd82a3364e44ace6addd7" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 42px; top: 27px;" data-block-id="c5a17ad3e4c9e088d3173c400f0df582"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;" dir="ui">
+<h1><span style="font-size:4.0em">YOUR</span></h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 42px; top: 283px;" data-block-id="f34fadeaa135659355efffe4a5224366"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h1><span style="color:#1abc9c"><span style="font-size:4.0em">TURN</span></span></h1>
+</div></div></section><section data-id="1d1e7d2c1ff31518c3e9853ca0eacd3f" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="text" style="width: 683px; left: 160px; top: 356px; height: auto;" data-block-id="a65e59c920b9a8b6e82b507264f64907">
+    <div class="sl-block-content fragment" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; font-size: 120%;" data-fragment-index="0">
+        <p>
+            <span style="font-size:1.4em">Extracting values from data stored in objects and arrays</span>
+        </p>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 132px; height: auto;" data-block-id="39cef3e6abf64bee7a28a25cd0e582f2">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+        <h1>
+            <span style="font-size:1.6em">
+                <span style="color:#1abc9c">Destructuring</span>
+            </span>
+        </h1>
+    </div>
+</div></section><section data-id="8ac0e800615115fa5a87c63742be0d85" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 70px; height: auto;" data-block-id="72d7db5f23fda15a86967aed9f5aba51">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+        <h1>
+            <span style="font-size:1.2em">
+                <span style="color:#1abc9c">ES5</span>
+            </span>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 855px; height: 168px; left: 53px; top: 203px;" data-block-id="91bd6ce51ff8fe4f91e25140f4ae7b65">
+    <div class="sl-block-content notranslate" style="z-index: 12; font-size: 188%;" data-highlight-theme="solarized-light">
+        <pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> instructor = {
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">"Elie"</span>,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-string">"Schoppik"</span>
+}
+
+</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 855px; height: 212px; left: 53px; top: 401px;" data-block-id="14e1e2d3fb9240d0d65562aa5ad869a0">
+    <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 188%;" data-fragment-index="0">
+        <pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> firstName = instructor.firstName;
+<span class="hljs-keyword">var</span> lastName = instructor.lastName;
+
+firstName; <span class="hljs-comment">// "Elie"</span>
+lastName; <span class="hljs-comment">// "Schoppik"</span></code></pre>
+    </div>
+</div></section><section data-id="02f8e93e2036a5a94011c089054502c3" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 78px; top: 113px; height: auto;" data-block-id="410f332c274a77356bebdfbf3b8a3b4b">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+        <h1>
+            <span style="color:#1abc9c">Object Destructuring</span>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 862px; height: 395px; left: 45px; top: 236px;" data-block-id="1bd755f9eedd88a84d9042212fe15667">
+    <div class="sl-block-content notranslate" style="z-index: 11; font-size: 188%;" data-highlight-theme="solarized-light">
+        <pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> instructor = {
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">"Elie"</span>,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-string">"Schoppik"</span>
+}
+
+<span class="hljs-keyword">var</span> {firstName, lastName} = instructor;
+
+firstName; <span class="hljs-comment">// "Elie"</span>
+lastName; <span class="hljs-comment">// "Schoppik"</span></code></pre>
+    </div>
+</div></section><section data-id="c606bc2d52fbfbfa2874918a7c8d3083" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 78px; top: 113px; height: auto;" data-block-id="d62d8b9950a03fbc5b714475f3b06d30">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+        <h1>
+            <font color="#1abc9c">Different Variables</font>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 897px; height: 396px; left: 33px; top: 234px;" data-block-id="3237fcc5853bbea04c4db0e5b3096eae">
+    <div class="sl-block-content notranslate" style="z-index: 11; font-size: 170%;" data-highlight-theme="solarized-light">
+        <pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> instructor = {
+    <span class="hljs-attr">firstName</span>: <span class="hljs-string">"Elie"</span>,
+    <span class="hljs-attr">lastName</span>: <span class="hljs-string">"Schoppik"</span>
+}
+
+<span class="hljs-keyword">var</span> {<span class="hljs-attr">firstName</span>:first, <span class="hljs-attr">lastName</span>:last} = instructor;
+
+first; <span class="hljs-comment">// "Elie"</span>
+last; <span class="hljs-comment">// "Schoppik"</span></code></pre>
+    </div>
+</div></section><section data-id="6ac917b8d2d0a510b2075c92456544e3" hidden="" aria-hidden="true" class="future" style="display: none;">
+<div class="sl-block" data-block-type="code" style="width: 933px; height: 149px; left: 14px; top: 251px;" data-block-id="65fb04f3101927ceab1283d9db687ff8">
+    <div class="sl-block-content notranslate" style="z-index: 11; font-size: 114%;" data-highlight-theme="solarized-light">
+        <pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createInstructor</span>(<span class="hljs-params">options</span>)</span>{
+    <span class="hljs-keyword">var</span> options = options || {};
+    <span class="hljs-keyword">var</span> name = options.name || {<span class="hljs-attr">first</span>: <span class="hljs-string">"Matt"</span>, <span class="hljs-attr">last</span>:<span class="hljs-string">"Lane"</span>}
+    <span class="hljs-keyword">var</span> isHilarious = options.isHilarious || <span class="hljs-literal">false</span>; 
+    <span class="hljs-keyword">return</span> [name.first, name.last, isHilarious];
+}</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 841px; left: 60px; top: 118px; height: auto;" data-block-id="2a2538b0862fc8729bfd52a07b2e81da">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+        <h1>
+            <span style="font-size:0.7em">
+                <span style="color:#1abc9c">ES5 Default Values with an object</span>
+            </span>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 570px;" data-block-id="8303b71e51980a0cdb3a1aa8b9b6a1b8">
+    <div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; font-size: 80%;" data-fragment-index="3">
+        <p>
+            <span style="font-size:1.4em">Lots of work!</span>
+        </p>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 933px; height: 41px; left: 14px; top: 417px;" data-block-id="bf5fee0a75f321ea71bb717d7bc92aa5">
+    <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 14; font-size: 114%;" data-fragment-index="0">
+        <pre class="javascript"><code class="hljs">createInstructor(); <span class="hljs-comment">// ["Matt", "Lane", false]</span></code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 933px; height: 39px; left: 14px; top: 472px;" data-block-id="0d132f87274b61fc3c0b94c66a17502b">
+    <div class="sl-block-style" style="z-index: 15;">
+        <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 15; font-size: 114%;" data-fragment-index="1">
+            <pre class="javascript"><code class="hljs">createInstructor({<span class="hljs-attr">isHilarious</span>:<span class="hljs-literal">true</span>}); <span class="hljs-comment">// ["Matt", "Lane", true]</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 933px; height: 33px; left: 14px; top: 525px;" data-block-id="b74c309eebf3740ed300b609227c5851">
+    <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 16; font-size: 110%;" data-fragment-index="2">
+        <pre class="javascript"><code class="hljs">createInstructor({<span class="hljs-attr">name</span>: {<span class="hljs-attr">first</span>:<span class="hljs-string">"Tim"</span>, <span class="hljs-attr">last</span>:<span class="hljs-string">"Garcia"</span>}}); <span class="hljs-comment">// ["Tim", "Garcia", false]</span></code></pre>
+    </div>
+</div></section><section data-id="3cadd4d0ee6e2f686ee0ae3f8364932e" hidden="" aria-hidden="true" class="future" style="display: none;">
+<div class="sl-block" data-block-type="code" style="width: 960px; height: 81px; left: 0px; top: 241px;" data-block-id="bf0797de38664fae58138a0d9b4de380">
+    <div class="sl-block-content notranslate" style="z-index: 10; font-size: 107%;" data-highlight-theme="solarized-light">
+        <pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createInstructor</span>(<span class="hljs-params">{name = {first:<span class="hljs-string">"Matt"</span>, last:<span class="hljs-string">"Lane"</span>}, isHilarious=false } = {}</span>)</span>{
+    <span class="hljs-keyword">return</span> [name.first, name.last, isHilarious];
+}</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 113px; height: auto;" data-block-id="8e13b7704eb054a62cf7b8dca4af8719">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+        <h1>
+            <span style="color:#1abc9c">ES2015 Destructuring</span>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 939px; left: 8px; top: 344px;" data-block-id="1f1c995b26ea3dabda1f8bf938b7608d">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<ul>
+	<li class="fragment" data-fragment-index="0"><span style="font-size:0.7em"><span style="text-align:left">We're passing in a destructured object as a default parameter!</span></span></li>
+	<li class="fragment" data-fragment-index="1"><span style="font-size:0.7em">We assign as a default value an empty object so ES2015 knows we are destructuring</span></li>
+	<li class="fragment" data-fragment-index="2"><span style="font-size:0.7em">If nothing is passed in, we default to the destructured object as the parameter.</span></li>
+</ul>
+</div>
+</div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 933px; height: 41px; left: 11px; top: 486px;" data-block-id="348094183bcd163d039b73ffaed01a97">
+    <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 14; font-size: 114%;" data-fragment-index="3">
+        <pre class="javascript"><code class="hljs">createInstructor(); <span class="hljs-comment">// ["Matt", "Lane", false]</span></code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 933px; height: 39px; left: 11px; top: 540px;" data-block-id="d80ed5d464492b48870e75ce5eb4f313">
+    <div class="sl-block-style" style="z-index: 15;">
+        <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 15; font-size: 114%;" data-fragment-index="4">
+            <pre class="javascript"><code class="hljs">createInstructor({<span class="hljs-attr">isHilarious</span>:<span class="hljs-literal">true</span>}); <span class="hljs-comment">// ["Matt", "Lane", true]</span>
+</code></pre>
+        </div>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 933px; height: 38px; left: 11px; top: 595px;" data-block-id="6de9f2e61ac046d9bb2439c7e0a2c67e">
+    <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 16; font-size: 110%;" data-fragment-index="5">
+        <pre class="javascript"><code class="hljs">createInstructor({<span class="hljs-attr">name</span>: {<span class="hljs-attr">first</span>:<span class="hljs-string">"Tim"</span>, <span class="hljs-attr">last</span>:<span class="hljs-string">"Garcia"</span>}}); <span class="hljs-comment">// ["Tim", "Garcia", false]</span></code></pre>
+    </div>
+</div></section><section data-id="561ff5fe4b5db30c9910a97f4774931f" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 931px; left: 16px; top: 94px; height: auto;" data-block-id="a600f8e5942b56fd54e28bc08de1f066">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11; font-size: 95%;">
+<h1><span style="font-size:0.7em"><span style="color:#1abc9c">Object fields as parameters ES5</span></span></h1>
+</div>
+</div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 866px; height: 155px; left: 48px; top: 368px;" data-block-id="26576bc7971fe7a940c222c9c32dc5a4">
+    <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 14; font-size: 120%;" data-fragment-index="1">
+        <pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> instructor = { 
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"Elie"</span>,
+    <span class="hljs-attr">favColor</span>: <span class="hljs-string">"Purple"</span>
+};
+
+displayInfo(instructor); <span class="hljs-comment">// ["Elie", "Purple"]</span></code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 866px; height: 88px; left: 48px; top: 248px;" data-block-id="c3c30425ef1bf023ab5e38fcece24675">
+    <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 15; font-size: 120%;" data-fragment-index="0">
+        <pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayInfo</span>(<span class="hljs-params">obj</span>) </span>{
+    <span class="hljs-keyword">return</span> [obj.name, obj.favColor];
+}</code></pre>
+    </div>
+</div></section><section data-id="e6958cb8453b6ba726816139be968787" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 931px; left: 15px; top: 107px; height: auto;" data-block-id="0831e74e62d1fed780302ec6c0523572">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; font-size: 95%;">
+<h1><span style="font-size:0.7em"><span style="color:#1abc9c">Object fields as parameters ES2015</span></span></h1>
+</div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 866px; height: 84px; left: 48px; top: 245px;" data-block-id="db91c6d311f5ff8805d0aea62e578117">
+    <div class="sl-block-content fragment notranslate" style="z-index: 11; font-size: 120%;" data-highlight-theme="solarized-light" data-fragment-index="0">
+        <pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displayInfo</span>(<span class="hljs-params">{name,favColor}</span>) </span>{
+    <span class="hljs-keyword">return</span> [name, favColor];
+}</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 910px; left: 15px; top: 533px; height: auto;" data-block-id="2581cc938f2b0c10b91a2e7069490d78">
+    <div class="sl-block-content fragment" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;" data-fragment-index="2">
+<p><span style="font-size:1.0em">Very common in React!</span></p>
+</div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 866px; height: 152px; left: 48px; top: 351px;" data-block-id="b7851a458ff268fec26e320206796eb9">
+    <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 120%;" data-fragment-index="1">
+        <pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> instructor = { 
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"Elie"</span>,
+    <span class="hljs-attr">favColor</span>: <span class="hljs-string">"Purple"</span>
+};
+
+displayInfo(instructor); <span class="hljs-comment">// ["Elie", "Purple"]</span></code></pre>
+    </div>
+</div></section><section data-id="7e6ea6db185f22ac41f8606958721f87" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 807px; left: 77px; top: 210px; height: auto;" data-block-id="ba4d843e97d7f5a832d2934181897426">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; font-size: 120%;">
+<h1><span style="color:#1abc9c">Array</span></h1>
+
+<h1><span style="color:#1abc9c">Destructuring</span></h1>
+
+<p>&nbsp;</p>
+</div>
+</div></section><section data-id="f80a734fd54b23d4bda12dd66f281be7" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 897px; height: 205px; left: 38px; top: 210px;" data-block-id="76e04a0d851f402922e3d2f6e0f150e4">
+    <div class="sl-block-content notranslate" style="z-index: 10; font-size: 110%;" data-highlight-theme="solarized-light">
+        <pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
+
+<span class="hljs-keyword">var</span> a = arr[<span class="hljs-number">0</span>];
+<span class="hljs-keyword">var</span> b = arr[<span class="hljs-number">1</span>]; 
+<span class="hljs-keyword">var</span> c = arr[<span class="hljs-number">2</span>];
+
+a; <span class="hljs-comment">// 1</span>
+b; <span class="hljs-comment">// 2</span>
+c; <span class="hljs-comment">// 3</span>
+</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 856px; left: 52px; top: 92px; height: auto;" data-block-id="8bb1778731016721dab653491640062e">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+        <h1>
+            <span style="color:#1abc9c">ES5 vs ES2015</span>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="width: 897px; height: 204px; left: 38px; top: 426px;" data-block-id="5a22eaeb9cc86d2de13627feda1fcbdf">
+    <div class="sl-block-style" style="z-index: 14; transform: rotate(360deg);">
+        <div class="sl-block-content fragment notranslate" style="z-index: 14; font-size: 110%;" data-highlight-theme="solarized-light" data-fragment-index="0">
+            <pre class="javascript"><code class="hljs"><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
+
+<span class="hljs-keyword">var</span> [a,b,c] = arr;
+
+a; <span class="hljs-comment">// 1</span>
+b; <span class="hljs-comment">// 2</span>
+c; <span class="hljs-comment">// 3 </span></code></pre>
+        </div>
+    </div>
+</div></section><section data-id="fc941dcffb7ad39b9555bad66cd5907f" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 91px; top: 113px; height: auto;" data-block-id="82cbe1fd7ab12877116a6c4226894070">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+        <h1>
+            <span style="color:#1abc9c">ES5 vs ES2015</span>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 897px; height: 184px; left: 31px; top: 477px;" data-block-id="17533bccfdc71eba6a62fb6c35599116">
+    <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 11; font-size: 110%;" data-fragment-index="1">
+        <pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">returnNumbers</span>(<span class="hljs-params">a,b</span>) </span>{
+  <span class="hljs-keyword">return</span> [a,b];
+}
+
+[first, second] = returnNumbers(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>); 
+
+first; <span class="hljs-comment">// 5</span>
+second; <span class="hljs-comment">// 10</span>
+</code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 897px; height: 200px; left: 31px; top: 250px;" data-block-id="dacdcc6b4d81d849d8d32ff80845c0e7">
+    <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 110%;" data-fragment-index="0">
+        <pre class="javascript"><code class="hljs"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">returnNumbers</span>(<span class="hljs-params">a,b</span>) </span>{
+  <span class="hljs-keyword">return</span> [a,b];
+}
+
+<span class="hljs-keyword">var</span> first = returnNumbers(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>)[<span class="hljs-number">0</span>];
+<span class="hljs-keyword">var</span> second = returnNumbers(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>)[<span class="hljs-number">1</span>];
+
+first; <span class="hljs-comment">// 5</span>
+second; <span class="hljs-comment">// 10</span>
+</code></pre>
+    </div>
+</div></section><section data-id="6fa3e77b4af26f313662c492da66cb22" hidden="" aria-hidden="true" class="future" style="display: none;">
+
+<div class="sl-block" data-block-type="code" style="width: 897px; height: 206px; left: 38px; top: 249px;" data-block-id="e783eab193ff54fd9cc1e176b471ea8e">
+    <div class="sl-block-content fragment notranslate" style="z-index: 11; font-size: 110%;" data-highlight-theme="solarized-light" data-fragment-index="0">
+        <pre class="javascript"><code class="hljs"><span class="hljs-comment">//ES5</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">swap</span>(<span class="hljs-params">a,b</span>)</span>{
+    <span class="hljs-keyword">var</span> temp = a;
+    a = b;
+    b = temp;
+    <span class="hljs-keyword">return</span> [a,b];
+}
+
+swap(<span class="hljs-number">10</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">// [5,10]</span></code></pre>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 806px; left: 84px; top: 128px; height: auto;" data-block-id="ce993dab44cb8d338347fa339f196abe">
+    <div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 12;">
+        <h1>
+            <font color="#1abc9c">Swapping Values</font>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="code" style="min-width: 30px; min-height: 30px; width: 897px; height: 144px; left: 38px; top: 466px;" data-block-id="101c94acd91a411c1dbd294876886dfd">
+    <div class="sl-block-content fragment notranslate" data-highlight-theme="solarized-light" style="z-index: 13; font-size: 110%;" data-fragment-index="1">
+        <pre class="javascript"><code class="hljs"><span class="hljs-comment">// ES2015</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">swap</span>(<span class="hljs-params">a,b</span>)</span>{
+    <span class="hljs-keyword">return</span> [a,b] = [b,a];
+}
+
+swap(<span class="hljs-number">10</span>,<span class="hljs-number">5</span>); <span class="hljs-comment">// [5,10]</span></code></pre>
+    </div>
+</div></section><section data-id="c76ce2b744d38a505b1323bf8ea4f50b" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 42px; top: 27px;" data-block-id="cb3553fa984129504604c121c8a9ddb9">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;" dir="ui">
+        <h1>
+            <span style="font-size:4.0em">YOUR</span>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 877px; left: 42px; top: 283px;" data-block-id="8754475098978db4385750a133ffdba8">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+        <h1>
+            <span style="color:#1abc9c">
+                <span style="font-size:4.0em">TURN</span>
+            </span>
+        </h1>
+    </div>
+</div></section><section data-id="bbf6d6f67f687ff4bf8bf2c19a6477a5" hidden="" aria-hidden="true" class="future" style="display: none;"><div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 54px; height: auto;" data-block-id="7b9613f67422bd8eb8ad9d34b7c38c8e">
+    <div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10;">
+        <h1>
+            <span style="color:#1abc9c">Recap</span>
+        </h1>
+    </div>
+</div>
+<div class="sl-block" data-block-type="text" style="width: 896px; left: 32px; top: 154px; height: auto;" data-block-id="dfd2c76fdf363a0b14612ba6a9732a78">
+    <div class="sl-block-style" style="z-index: 11; transform: rotate(360deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li class="fragment" style="color:rgb(236, 240, 241)" data-fragment-index="0"><span style="font-size:0.7em">ES2015 gives us two new keywords for declaring variables let, const. Const ensures we can not redeclare a variable and let gives us block scope</span></li>
+	<li class="fragment" style="color:rgb(236, 240, 241)" data-fragment-index="1"><span style="font-size:0.7em">Easily evaluate variables in strings and create multi-line strings with ES2015 template strings. Don't forget the backticks!</span></li>
+	<li class="fragment" style="color:rgb(236, 240, 241)" data-fragment-index="2"><span style="font-size:0.7em">Create more concise functions using the =&gt; syntax, but these functions do not get their own this and arguments keywords</span></li>
+	<li class="fragment" style="color:rgb(236, 240, 241)" data-fragment-index="3"><span style="font-size:0.7em">Gather arguments to a function as an array using the rest operator and spread out values in an array to another value or function using ...</span></li>
+	<li class="fragment" style="color:rgb(236, 240, 241)" data-fragment-index="4"><span style="font-size:0.7em">Write more concise methods and property names using shorthand notation and computed property names</span></li>
+	<li class="fragment" data-fragment-index="5"><span style="font-size:0.7em">Object destructuring is very useful for reducing duplication and passing in default parameters as a destructured object</span></li>
+	<li class="fragment" data-fragment-index="6"><span style="font-size:0.7em">Array destructuring can also be used for swapping variables in an array without a separate swap function</span></li>
+</ul>
+</div></div>
+</div></section>
+				</div>
+					<div id="theme-html-output"></div>
+				<div class="deck-kudos" style="opacity: 1;">
+					<button class="kudos-button kudos-trigger" data-kudos-id="1000272" data-kudoed-by-user="false">
+						<div class="kudos-heart">
+							<span class="kudos-icon icon i-heart-fill"></span>
+						</div>
+						<div class="kudos-count" data-kudos-value="26" data-kudos-id="1000272"></div>
+					</button>
+				</div>
+			<div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;" data-loaded="true"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-number" style="display: none;"></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">ES2015 </div></div>
+		</div>
+	</div>
+
+	
+
+	<div class="pill instructions-pill" style="left: 607px;">
+		<div class="pill-picture"></div>
+		<div class="pill-content">
+			<h4 class="pill-title"></h4>
+			<p class="pill-description"></p>
+		</div>
+	</div>
+
+</div>
+
+
+
+     <!--! end of #container -->
+    
+<script>
+	var SLConfig = {"current_user":{"id":1556843,"username":"hamoudagmc","name":null,"description":null,"thumbnail_url":"https://www.gravatar.com/avatar/a19e55a94c977b04bc6e4b98c9fba332?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","account_type":"default","team_id":null,"settings":{"id":7260527,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null,"editor_grid":true,"editor_grid_on_top":false,"editor_snap":true,"editor_fixed_notes":false,"developer_mode":false,"speaker_layout":null,"speaker_theme":null,"phone_number":null,"phone_country_code":null,"media_sources":null,"export_controls":null,"export_slide_number":null,"export_slide_notes":null,"export_separate_fragments":null,"auto_animate_tutorial_completed":true},"email":"hamoudamdemagh@gmail.com","notify_on_receipt":true,"billing_address":null,"billing_vat_id":null,"editor_tutorial_completed":true,"manually_upgraded":false,"deck_user_editor_limit":null,"storage_used":0,"storage_limit":262144000,"image_upload_limit":10485760,"video_upload_limit":104857600},"team":{"id":589,"name":"webdev","slug":"webdev","logo":null,"default_theme_id":1108,"user_count":3,"allow_scripts":false,"themes":[{"id":1499,"created_at":"2017-05-26T22:39:22.415Z","updated_at":"2017-05-26T22:39:27.302Z","name":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/20acd83a0560ae4d7fe14feb0e85e578/thumb.jpg?239650851","sanitize_messages":null,"slide_template_ids":[],"font_typekit":null,"font_google":null,"width":960,"height":700},{"id":1425,"created_at":"2017-02-12T00:35:36.603Z","updated_at":"2017-02-12T00:35:59.375Z","name":"printer friendly","thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/38dfc71f77199a02b2611936c44ac466/thumb.jpg","sanitize_messages":null,"slide_template_ids":[],"font_typekit":"","font_google":"","width":960,"height":700},{"id":1108,"created_at":"2016-05-15T05:15:50.631Z","updated_at":"2018-05-18T19:29:42.415Z","name":"MongoCourse","thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/5f1ddab96a533700b12ddc6ff09ec01c/thumb.jpg?1526671780","sanitize_messages":null,"slide_template_ids":[],"font_typekit":"","font_google":"","width":960,"height":700}],"beta_new_editor":true,"manually_upgraded":false,"allow_public_decks":true,"google_domain":""},"deck":{"id":1000272,"slug":"es2015","title":"ES2015 Part 1","description":"ES2015 Introduction","width":960,"height":700,"margin":0.05,"visibility":"all","published_at":"2017-05-10T16:24:21.724Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/af723e52dca84c25b29bfadd98145fbf/thumb.jpg?18773398","view_count":2769,"user":{"id":534166,"username":"eschoppik","name":"Elie Schoppik","description":"","thumbnail_url":"https://www.gravatar.com/avatar/3c777107ca75116359c60093cd9b3b3f?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","account_type":"enterprise","team_id":589,"settings":{"id":377701,"present_controls":true,"present_upsizing":true,"present_pointer":true,"present_notes":true,"default_deck_tag_id":null},"membership":{"role":"member","manager":false,"activated":true}},"background_transition":"slide","transition":"fade","theme_id":1108,"theme_font":"quicksand","theme_color":"white-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":null,"should_loop":false,"share_notes":false,"slide_number":false,"slide_count":52,"rtl":false,"version":2,"collaborative":false,"deck_user_editor_limit":null,"data_updated_at":1536564728416,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":null},"theme":{"id":1108,"created_at":"2016-05-15T05:15:50.631Z","updated_at":"2018-05-18T19:29:42.415Z","name":"MongoCourse","thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/5f1ddab96a533700b12ddc6ff09ec01c/thumb.jpg?1526671780","sanitize_messages":null,"slide_template_ids":[],"font_typekit":"","font_google":"","width":960,"height":700},"user":{"id":534166,"username":"eschoppik","name":"Elie Schoppik","description":"","thumbnail_url":"https://www.gravatar.com/avatar/3c777107ca75116359c60093cd9b3b3f?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","account_type":"enterprise","team_id":589,"settings":{"id":377701,"present_controls":true,"present_upsizing":true,"present_pointer":true,"present_notes":true,"default_deck_tag_id":null},"membership":{"role":"member","manager":false,"activated":true}}};
+</script>
+    <script src="./ES2015 Part 1_files/application-93b6e55f93473096810fb855195d406f4ebd7a9c4daa1f7367f74a9f0587d89e.js.téléchargement" defer="defer"></script>
+    	<script src="./ES2015 Part 1_files/deck-eba980553838a5ff4072da9eb97e3da07cb1a3e99d78c1fda04f62eba7833db3.js.téléchargement" defer="defer"></script>
+	
+
+
+    <script>
+UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/f7sH7NavrjjvuGxByaw.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
+
+UserVoice.push(['set', {
+  accent_color: '#448dd6',
+  trigger_color: 'white',
+  trigger_background_color: 'rgba(46, 49, 51, 0.6)',
+  position: 'automatic'
+}]);
+
+UserVoice.push(['identify', {
+  email:      "hamoudamdemagh@gmail.com",
+  name:       "hamoudagmc",
+  id:         "1556843",
+  type:       "default",
+  created_at: 1611266159
+
+  , account: {
+   id:           "589",
+   name:         "webdev",
+   created_at:   1443327188
+  }
+}]);
+</script>
+
+  
+
+<iframe style="display: none;" src="./ES2015 Part 1_files/saved_resource(1).html"></iframe><iframe id="dsq-app6574" name="dsq-app6574" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./ES2015 Part 1_files/saved_resource(2).html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 100% !important; position: fixed !important; inset: 0px 0px auto auto !important; z-index: 2147483647 !important; display: none !important;"></iframe></body><loom-container id="lo-engage-ext-container"><div></div><loom-shadow classname="resolved"></loom-shadow></loom-container></html>
