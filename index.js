@@ -37,7 +37,7 @@
 
 //4 arrow Func
 // remove the key word Function and replace it withe =>
-
+//Exercices to challenge them
 // Exemple: val => val and operation arrow Function 
 // function tripleAndFilter(arr){
 //   return arr.map(function(value){
@@ -81,24 +81,5 @@ let mapFilterAndReduce = (arr) => arr.map(val => val.firstName).filter(val => va
 
 // 4
 let createStudentObj = (firstName, lastName) => ({firstName:firstName, lastName:lastName});
-
-// var instructor = {
-//   firstName: "Hamouda",
-//   sayHi: function(){
-//     setTimeout(function(){
-//       console.log('Hello ' + this.firstName)
-//     },1000)
-//   }
-// }
-
-// 5
-var instructor = {
-  firstName: "Hamouda",
-  sayHi: function(){
-    setTimeout(() =>{
-      console.log('Hello ' + this.firstName)
-    }, 1000)
-  }
-}
 
 
