@@ -37,7 +37,7 @@
 
 //4 arrow Func
 // remove the key word Function and replace it withe =>
-//Exercices to challenge them
+//Exercices to challenges
 // Exemple: val => val and operation arrow Function 
 // function tripleAndFilter(arr){
 //   return arr.map(function(value){
@@ -81,5 +81,28 @@ let mapFilterAndReduce = (arr) => arr.map(val => val.firstName).filter(val => va
 
 // 4
 let createStudentObj = (firstName, lastName) => ({firstName:firstName, lastName:lastName});
+
+
+/// Default parameters
+
+// func add without parameters => undefined + undefind = NaN 
+//1-try it with conditional if 
+// 2- invoque the default Parameters
+
+
+
+//spread
+// declar 3 arrays and create from the value of each of them a new array
+//in classic way we can use the concatnation
+//in ES6 we have the spread opprator with ...
+//use apply 
+
+
+
+
+//object Shorthand notation
+/// declacr variable with name key & val with the same name if they have the same name we can declare them as below
+
+
 
 
